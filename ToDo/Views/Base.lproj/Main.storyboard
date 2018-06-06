@@ -25,9 +25,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NJ9-8w-z9N">
-                                <rect key="frame" x="150" y="306" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -38,16 +35,13 @@
                             <constraint firstItem="gs2-pF-aea" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YiY-8L-FyA"/>
                             <constraint firstItem="Iv0-Yu-YFN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dTR-C2-s7T"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Iv0-Yu-YFN" secondAttribute="trailing" id="irk-6J-A33"/>
-                            <constraint firstItem="NJ9-8w-z9N" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kpm-UE-Dss"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gs2-pF-aea" secondAttribute="trailing" id="tix-C7-lSe"/>
-                            <constraint firstItem="NJ9-8w-z9N" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="zee-4u-nwp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bvv-uz-UzC"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="gs2-pF-aea" id="bDH-vN-jYL"/>
-                        <outlet property="indicator" destination="NJ9-8w-z9N" id="jUr-BW-loY"/>
                         <outlet property="tasksTableView" destination="Iv0-Yu-YFN" id="sn9-Yn-3Uo"/>
                     </connections>
                 </viewController>

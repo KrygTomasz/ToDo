@@ -11,17 +11,22 @@ import Firebase
 
 class LoginVMImpl: LoginVM {
     
-    weak var delegate: Hideable?
+    weak var delegate: LoginVCDelegate?
     
     func logIn(withCredentials credentials: LoginVMInput) {
+        delegate?.showIndicator(description: "Logowanie...")
         Auth.auth().signIn(withEmail: credentials.email, password: credentials.password) {
             user, error in
-            print(error?.localizedDescription)
             if error == nil {
+                self.delegate?.hideIndicator(withSuccess: true, description: "Zalogowano", completion: nil)
                 User.shared.update(email: credentials.email, password: credentials.password)
                 self.observeUsername()
-                self.delegate?.hide()
+                self.delegate?.hideVC()
+                return
             }
+            let errorMessage = error?.localizedDescription ?? "Błąd"
+            print(errorMessage)
+            self.delegate?.hideIndicator(withSuccess: false, description: errorMessage, completion: nil)
         }
     }
     

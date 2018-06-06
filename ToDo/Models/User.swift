@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class User {
+final class User {
     
     static let shared = User()
     

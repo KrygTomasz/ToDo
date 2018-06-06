@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 protocol ReloadViewDelegate: class {
     func reload()
@@ -29,13 +30,8 @@ class TasksViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var indicator: UIActivityIndicatorView! {
-        didSet {
-            indicator.color = UIColor.lightGray
-        }
-    }
-    
     lazy var addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddClicked))
+    let hud = JGProgressHUD(style: .dark)
     var taskVM: TasksVM!
     
     override func viewDidLoad() {
@@ -93,6 +89,7 @@ class TasksViewController: UIViewController {
 
 }
 
+//MARK: UITableView Delegate and DataSource
 extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -129,25 +126,30 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+//MARK: Indicators
 extension TasksViewController {
     
-    func showIndicator() {
-        indicator.isHidden = false
-        indicator.startAnimating()
+    private func showIndicator() {
+        hud.textLabel.text = "Pobieranie listy zadań..."
+        hud.show(in: self.view)
     }
     
-    func hideIndicator() {
-        indicator.stopAnimating()
-        indicator.isHidden = true
+    private func hideIndicator() {
+        UIView.animate(withDuration: 0.3) {
+            self.hud.textLabel.text = "Pobrano"
+            self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+            self.hud.dismiss(afterDelay: 1.0, animated: true)
+        }
     }
     
-    func reloadCollectionView() {
+    private func reloadCollectionView() {
         tasksTableView.reloadData()
 //        tasksTableView.reloadSections([0], with: .none)
     }
     
 }
 
+//MARK: ReloadViewDelegate
 extension TasksViewController: ReloadViewDelegate {
     
     func reload() {

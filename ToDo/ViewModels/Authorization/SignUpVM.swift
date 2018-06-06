@@ -11,5 +11,6 @@ import Foundation
 typealias SignUpVMInput = (email: String, password: String, username: String)
 
 protocol SignUpVM {
-    var delegate: Hideable? {get set}
-    func signUp(withCredentials credentials: SignUpVMInput)}
+    var delegate: SignUpVCDelegate? {get set}
+    func signUp(withCredentials credentials: SignUpVMInput)
+}

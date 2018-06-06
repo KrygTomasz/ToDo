@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import JGProgressHUD
+
+protocol SignUpVCDelegate: class {
+    func showIndicator(description: String)
+    func hideIndicator(withSuccess success: Bool, description: String, completion: EmptyCompletion?)
+    func hideVC()
+}
 
 class SignUpVC: UIViewController {
 
@@ -20,6 +27,7 @@ class SignUpVC: UIViewController {
         }
     }
     
+    lazy var hud = JGProgressHUD(style: .dark)
     var signUpVM: SignUpVM = SignUpVMImpl()
     
     override func viewDidLoad() {
@@ -36,9 +44,23 @@ class SignUpVC: UIViewController {
 
 }
 
-extension SignUpVC: Hideable {
+
+//MARK: SignUpVCDelegate
+extension SignUpVC: SignUpVCDelegate {
     
-    func hide() {
+    func showIndicator(description: String) {
+        hud.textLabel.text = description
+        hud.show(in: self.view)
+    }
+    
+    func hideIndicator(withSuccess success: Bool, description: String, completion: EmptyCompletion? = nil) {
+        if success {
+            self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+        }
+        self.hud.dismiss()
+    }
+    
+    func hideVC() {
         self.navigationController?.popViewController(animated: true)
     }
     

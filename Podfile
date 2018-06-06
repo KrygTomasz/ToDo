@@ -6,4 +6,5 @@ target 'ToDo' do
     pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
+    pod 'JGProgressHUD'
 end

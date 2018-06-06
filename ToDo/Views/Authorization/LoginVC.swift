@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import JGProgressHUD
+
+protocol LoginVCDelegate: class {
+    func showIndicator(description: String)
+    func hideIndicator(withSuccess success: Bool, description: String, completion: EmptyCompletion?)
+    func hideVC()
+}
 
 class LoginVC: UIViewController {
 
@@ -31,6 +38,8 @@ class LoginVC: UIViewController {
         }
     }
     
+    let hud = JGProgressHUD(style: .dark)
+
     weak var delegate: ReloadViewDelegate?
     var loginVM: LoginVM = LoginVMImpl()
     
@@ -62,9 +71,22 @@ class LoginVC: UIViewController {
     
 }
 
-extension LoginVC: Hideable {
+//MARK: LoginVCDelegate
+extension LoginVC: LoginVCDelegate {
     
-    func hide() {
+    func showIndicator(description: String) {
+        hud.textLabel.text = description
+        hud.show(in: self.view)
+    }
+    
+    func hideIndicator(withSuccess success: Bool, description: String, completion: EmptyCompletion? = nil) {
+        if success {
+            self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+        }
+        self.hud.dismiss()
+    }
+    
+    func hideVC() {
         delegate?.reload()
         self.dismiss(animated: true, completion: nil)
     }
