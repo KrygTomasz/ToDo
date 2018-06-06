@@ -12,13 +12,16 @@ import Firebase
 class TasksVMImpl: TasksVM {
     
     var taskVMs: [TaskVM] = []
-    weak var delegate: TasksVCDelegate?
     
-    private let tasksRef = Database.database().reference(withPath: "tasks")
+    private var tasksRef: DatabaseReference?
     
     init() {
-        showIndicator()
-        tasksRef.observe(.value) { snapshot in
+        
+    }
+    
+    func prepare(completion: EmptyCompletion? = nil) {
+        tasksRef = Database.database().reference(withPath: User.shared.id)
+        tasksRef?.observe(.value) { snapshot in
             var taskVMArray: [TaskVM] = []
             for child in snapshot.children {
                 guard let snapshot = child as? DataSnapshot else { continue }
@@ -27,8 +30,7 @@ class TasksVMImpl: TasksVM {
                 taskVMArray.append(taskVM)
             }
             self.taskVMs = taskVMArray
-            self.hideIndicator()
-            self.refreshView()
+            completion?()
         }
     }
     
@@ -40,22 +42,10 @@ class TasksVMImpl: TasksVM {
         return taskVMs.count
     }
     
-    func showIndicator() {
-        delegate?.showIndicator()
-    }
-    
-    func hideIndicator() {
-        delegate?.hideIndicator()
-    }
-    
-    func refreshView() {
-        delegate?.reloadCollectionView()
-    }
-    
     func addTask(withTitle title: String) {
-        let task = Task(title: title, addedByUser: "Temporary", completed: false)
-        let taskRef = tasksRef.child(task.title)
-        taskRef.setValue(task.toAnyObject())
+        let task = Task(title: title, addedByUser: User.shared.username, completed: false)
+        let taskRef = tasksRef?.child(task.title)
+        taskRef?.setValue(task.toAnyObject())
     }
     
     func getTaskVM(byIndex index: Int) -> TaskVM? {

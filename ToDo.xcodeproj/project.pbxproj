@@ -25,6 +25,15 @@
 		22A1A6E420C7591100D65610 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1A6E320C7591100D65610 /* Collection+Extensions.swift */; };
 		22A1A6E720C762E400D65610 /* TaskTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1A6E520C762E400D65610 /* TaskTVCell.swift */; };
 		22A1A6E820C762E400D65610 /* TaskTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A1A6E620C762E400D65610 /* TaskTVCell.xib */; };
+		22C9A6D020C82793003800D5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6CE20C82793003800D5 /* LoginVC.swift */; };
+		22C9A6D320C829CF003800D5 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6D220C829CF003800D5 /* SignUpVC.swift */; };
+		22C9A6D520C82E5E003800D5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6D420C82E5E003800D5 /* User.swift */; };
+		22C9A6D920C830CA003800D5 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6D820C830CA003800D5 /* LoginVM.swift */; };
+		22C9A6DB20C830D2003800D5 /* LoginVMImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6DA20C830D2003800D5 /* LoginVMImpl.swift */; };
+		22C9A6DD20C832A6003800D5 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6DC20C832A6003800D5 /* SignUpVM.swift */; };
+		22C9A6DF20C832AE003800D5 /* SignUpVMImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6DE20C832AE003800D5 /* SignUpVMImpl.swift */; };
+		22C9A6E220C83785003800D5 /* Hideable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6E120C83785003800D5 /* Hideable.swift */; };
+		22C9A6E420C83894003800D5 /* GlobalValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6E320C83894003800D5 /* GlobalValues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +77,15 @@
 		22A1A6E320C7591100D65610 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		22A1A6E520C762E400D65610 /* TaskTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTVCell.swift; sourceTree = "<group>"; };
 		22A1A6E620C762E400D65610 /* TaskTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTVCell.xib; sourceTree = "<group>"; };
+		22C9A6CE20C82793003800D5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		22C9A6D220C829CF003800D5 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		22C9A6D420C82E5E003800D5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		22C9A6D820C830CA003800D5 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		22C9A6DA20C830D2003800D5 /* LoginVMImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVMImpl.swift; sourceTree = "<group>"; };
+		22C9A6DC20C832A6003800D5 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
+		22C9A6DE20C832AE003800D5 /* SignUpVMImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVMImpl.swift; sourceTree = "<group>"; };
+		22C9A6E120C83785003800D5 /* Hideable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hideable.swift; sourceTree = "<group>"; };
+		22C9A6E320C83894003800D5 /* GlobalValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalValues.swift; sourceTree = "<group>"; };
 		3698949BA9488B2DBE975E89 /* Pods-ToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDo/Pods-ToDo.release.xcconfig"; sourceTree = "<group>"; };
 		8C945FA40AB2F981E07ABF8A /* Pods-ToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDo/Pods-ToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		C4E9204A05F82ABFB0CD206E /* Pods_ToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,12 +142,12 @@
 		227B691E20C71FBE00F145D0 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				22C9A6E020C83779003800D5 /* Common */,
 				22A1A6E220C758FC00D65610 /* Extensions */,
 				22A1A6D220C73D6400D65610 /* ViewModels */,
 				22A1A6D120C73D5E00D65610 /* Views */,
 				22A1A6CE20C736D200D65610 /* Models */,
 				227B691F20C71FBE00F145D0 /* AppDelegate.swift */,
-				227B692320C71FBE00F145D0 /* Main.storyboard */,
 				227B692920C71FBE00F145D0 /* Assets.xcassets */,
 				227B692B20C71FBE00F145D0 /* LaunchScreen.storyboard */,
 				227B692E20C71FBE00F145D0 /* Info.plist */,
@@ -161,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				22A1A6CF20C736E400D65610 /* Task.swift */,
+				22C9A6D420C82E5E003800D5 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,7 +187,9 @@
 		22A1A6D120C73D5E00D65610 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				22C9A6CD20C82777003800D5 /* Authorization */,
 				22A1A6D520C73FF900D65610 /* Cells */,
+				227B692320C71FBE00F145D0 /* Main.storyboard */,
 				227B692120C71FBE00F145D0 /* TasksViewController.swift */,
 			);
 			path = Views;
@@ -177,10 +198,8 @@
 		22A1A6D220C73D6400D65610 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				22A1A6D320C73FBA00D65610 /* TasksVM.swift */,
-				22A1A6DA20C742BE00D65610 /* TasksVMImpl.swift */,
-				22A1A6DE20C7530200D65610 /* TaskVM.swift */,
-				22A1A6E020C7539C00D65610 /* TaskVMImpl.swift */,
+				22C9A6D620C830AE003800D5 /* Authorization */,
+				22C9A6D720C830B4003800D5 /* Tasks */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -200,6 +219,46 @@
 				22A1A6E320C7591100D65610 /* Collection+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		22C9A6CD20C82777003800D5 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				22C9A6CE20C82793003800D5 /* LoginVC.swift */,
+				22C9A6D220C829CF003800D5 /* SignUpVC.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		22C9A6D620C830AE003800D5 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				22C9A6D820C830CA003800D5 /* LoginVM.swift */,
+				22C9A6DA20C830D2003800D5 /* LoginVMImpl.swift */,
+				22C9A6DC20C832A6003800D5 /* SignUpVM.swift */,
+				22C9A6DE20C832AE003800D5 /* SignUpVMImpl.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		22C9A6D720C830B4003800D5 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				22A1A6D320C73FBA00D65610 /* TasksVM.swift */,
+				22A1A6DA20C742BE00D65610 /* TasksVMImpl.swift */,
+				22A1A6DE20C7530200D65610 /* TaskVM.swift */,
+				22A1A6E020C7539C00D65610 /* TaskVMImpl.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		22C9A6E020C83779003800D5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				22C9A6E120C83785003800D5 /* Hideable.swift */,
+				22C9A6E320C83894003800D5 /* GlobalValues.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		5C0B820D3685DAF513CFFDE9 /* Pods */ = {
@@ -418,16 +477,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22C9A6D920C830CA003800D5 /* LoginVM.swift in Sources */,
+				22C9A6D520C82E5E003800D5 /* User.swift in Sources */,
+				22C9A6DD20C832A6003800D5 /* SignUpVM.swift in Sources */,
+				22C9A6D020C82793003800D5 /* LoginVC.swift in Sources */,
+				22C9A6DB20C830D2003800D5 /* LoginVMImpl.swift in Sources */,
 				22A1A6D020C736E400D65610 /* Task.swift in Sources */,
 				227B692220C71FBE00F145D0 /* TasksViewController.swift in Sources */,
 				227B692820C71FBE00F145D0 /* ToDo.xcdatamodeld in Sources */,
+				22C9A6D320C829CF003800D5 /* SignUpVC.swift in Sources */,
 				22A1A6E120C7539C00D65610 /* TaskVMImpl.swift in Sources */,
 				22A1A6DB20C742BE00D65610 /* TasksVMImpl.swift in Sources */,
 				22A1A6DF20C7530200D65610 /* TaskVM.swift in Sources */,
 				227B692020C71FBE00F145D0 /* AppDelegate.swift in Sources */,
 				22A1A6E720C762E400D65610 /* TaskTVCell.swift in Sources */,
 				22A1A6D420C73FBA00D65610 /* TasksVM.swift in Sources */,
+				22C9A6E220C83785003800D5 /* Hideable.swift in Sources */,
+				22C9A6DF20C832AE003800D5 /* SignUpVMImpl.swift in Sources */,
 				22A1A6E420C7591100D65610 /* Collection+Extensions.swift in Sources */,
+				22C9A6E420C83894003800D5 /* GlobalValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,13 +8,12 @@
 
 import Foundation
 
+typealias EmptyCompletion = (() -> Void)
+
 protocol TasksVM {
-    var delegate: TasksVCDelegate? {get set}
+    func prepare(completion: EmptyCompletion?)
     func numberOfSections() -> Int
     func numberOfItems() -> Int
-    func showIndicator()
-    func hideIndicator()
-    func refreshView()
     func addTask(withTitle title: String)
     func getTaskVM(byIndex index: Int) -> TaskVM?
 }

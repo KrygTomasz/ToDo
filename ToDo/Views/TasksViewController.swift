@@ -7,12 +7,9 @@
 //
 
 import UIKit
-import Firebase
 
-protocol TasksVCDelegate: class {
-    func showIndicator()
-    func hideIndicator()
-    func reloadCollectionView()
+protocol ReloadViewDelegate: class {
+    func reload()
 }
 
 class TasksViewController: UIViewController {
@@ -34,14 +31,22 @@ class TasksViewController: UIViewController {
     }
     
     lazy var addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddClicked))
-    var viewModel: TasksVM!
+    var taskVM: TasksVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = TasksVMImpl()
-        viewModel.delegate = self
+        taskVM = TasksVMImpl()
+        tryToPresentLoginScreen()
         self.navigationItem.title = "Lista zadań"
         self.navigationItem.rightBarButtonItem = addBarButton
+    }
+    
+    func tryToPresentLoginScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC else { return }
+        loginVC.delegate = self
+        let loginNavVC = UINavigationController(rootViewController: loginVC)
+        self.present(loginNavVC, animated: false, completion: nil)
     }
     
     @objc func onAddClicked() {
@@ -70,7 +75,7 @@ class TasksViewController: UIViewController {
     }
     
     private func addTask(withTitle title: String) {
-        viewModel.addTask(withTitle: title)
+        taskVM.addTask(withTitle: title)
     }
 
 }
@@ -80,17 +85,17 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tasksTableView.dequeueReusableCell(withIdentifier: "TaskTVCell", for: indexPath) as? TaskTVCell else { return UITableViewCell() }
         let index = indexPath.row
-        guard let taskVM = viewModel.getTaskVM(byIndex: index) else { return UITableViewCell() }
+        guard let taskVM = taskVM.getTaskVM(byIndex: index) else { return UITableViewCell() }
         cell.prepare(using: taskVM)
         return cell
     }
     
     func numberOfSections(in tableView: UICollectionView) -> Int {
-        return viewModel.numberOfSections()
+        return taskVM.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfItems()
+        return taskVM.numberOfItems()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -104,14 +109,14 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let index = indexPath.row
-            let task = viewModel.getTaskVM(byIndex: index)?.task
+            let task = taskVM.getTaskVM(byIndex: index)?.task
             task?.ref?.removeValue()
         }
     }
     
 }
 
-extension TasksViewController: TasksVCDelegate {
+extension TasksViewController {
     
     func showIndicator() {
         indicator.isHidden = false
@@ -124,11 +129,20 @@ extension TasksViewController: TasksVCDelegate {
     }
     
     func reloadCollectionView() {
-//        tasksTableView.beginUpdates()
         tasksTableView.reloadData()
-//        tasksTableView.endUpdates()
 //        tasksTableView.reloadSections([0], with: .none)
-        
+    }
+    
+}
+
+extension TasksViewController: ReloadViewDelegate {
+    
+    func reload() {
+        showIndicator()
+        taskVM.prepare() {
+            self.reloadCollectionView()
+            self.hideIndicator()
+        }
     }
     
 }
