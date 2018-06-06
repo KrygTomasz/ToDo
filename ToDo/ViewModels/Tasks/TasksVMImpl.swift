@@ -15,13 +15,10 @@ class TasksVMImpl: TasksVM {
     
     private var tasksRef: DatabaseReference?
     
-    init() {
-        
-    }
-    
     func prepare(completion: EmptyCompletion? = nil) {
         tasksRef = Database.database().reference(withPath: User.shared.id)
-        tasksRef?.observe(.value) { snapshot in
+        tasksRef?.observe(.value) {
+            snapshot in
             var taskVMArray: [TaskVM] = []
             for child in snapshot.children {
                 guard let snapshot = child as? DataSnapshot else { continue }

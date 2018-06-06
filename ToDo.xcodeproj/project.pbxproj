@@ -34,6 +34,7 @@
 		22C9A6DF20C832AE003800D5 /* SignUpVMImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6DE20C832AE003800D5 /* SignUpVMImpl.swift */; };
 		22C9A6E220C83785003800D5 /* Hideable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6E120C83785003800D5 /* Hideable.swift */; };
 		22C9A6E420C83894003800D5 /* GlobalValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6E320C83894003800D5 /* GlobalValues.swift */; };
+		22C9A6E620C849F4003800D5 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6E520C849F4003800D5 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		22C9A6DE20C832AE003800D5 /* SignUpVMImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVMImpl.swift; sourceTree = "<group>"; };
 		22C9A6E120C83785003800D5 /* Hideable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hideable.swift; sourceTree = "<group>"; };
 		22C9A6E320C83894003800D5 /* GlobalValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalValues.swift; sourceTree = "<group>"; };
+		22C9A6E520C849F4003800D5 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		3698949BA9488B2DBE975E89 /* Pods-ToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDo/Pods-ToDo.release.xcconfig"; sourceTree = "<group>"; };
 		8C945FA40AB2F981E07ABF8A /* Pods-ToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDo/Pods-ToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		C4E9204A05F82ABFB0CD206E /* Pods_ToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				22A1A6E320C7591100D65610 /* Collection+Extensions.swift */,
+				22C9A6E520C849F4003800D5 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22C9A6D920C830CA003800D5 /* LoginVM.swift in Sources */,
+				22C9A6E620C849F4003800D5 /* UIColor+Extensions.swift in Sources */,
 				22C9A6D520C82E5E003800D5 /* User.swift in Sources */,
 				22C9A6DD20C832A6003800D5 /* SignUpVM.swift in Sources */,
 				22C9A6D020C82793003800D5 /* LoginVC.swift in Sources */,

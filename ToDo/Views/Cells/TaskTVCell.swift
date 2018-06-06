@@ -15,7 +15,7 @@ class TaskTVCell: UITableViewCell {
             container.layer.cornerRadius = 5.0
             container.layer.borderWidth = 1.0
             container.layer.borderColor = UIColor.lightGray.cgColor
-            container.backgroundColor = UIColor.white
+            container.backgroundColor = UIColor.cardColor
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onContainerTap))
             container.addGestureRecognizer(tapGesture)
             container.isUserInteractionEnabled = true

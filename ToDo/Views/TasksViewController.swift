@@ -14,6 +14,11 @@ protocol ReloadViewDelegate: class {
 
 class TasksViewController: UIViewController {
     
+    @IBOutlet weak var backgroundImageView: UIImageView! {
+        didSet {
+            backgroundImageView.image = #imageLiteral(resourceName: "backgroundImage")
+        }
+    }
     @IBOutlet weak var tasksTableView: UITableView! {
         didSet {
             let taskCellNib = UINib(nibName: "TaskTVCell", bundle: nil)
@@ -39,6 +44,14 @@ class TasksViewController: UIViewController {
         tryToPresentLoginScreen()
         self.navigationItem.title = "Lista zadań"
         self.navigationItem.rightBarButtonItem = addBarButton
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.cardColor
     }
     
     func tryToPresentLoginScreen() {
