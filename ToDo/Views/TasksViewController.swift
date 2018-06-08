@@ -31,6 +31,7 @@ class TasksViewController: UIViewController {
     }
     
     lazy var addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddClicked))
+    lazy var logoutBarButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onLogoutClicked))
     let hud = JGProgressHUD(style: .dark)
     var taskVM: TasksVM!
     
@@ -38,24 +39,37 @@ class TasksViewController: UIViewController {
         super.viewDidLoad()
         taskVM = TasksVMImpl()
         tryToPresentLoginScreen()
-        self.navigationItem.title = "Lista zadań"
-        self.navigationItem.rightBarButtonItem = addBarButton
+        prepareNavigationBar()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
 //        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        self.navigationController?.navigationBar.shadowImage = UIImage()
 //        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.barTintColor = UIColor.cardColor
+//    }
+    
+    private func tryToPresentLoginScreen() {
+        presentLoginScreen(animated: false)
     }
     
-    func tryToPresentLoginScreen() {
+    private func presentLoginScreen(animated: Bool = true) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC else { return }
         loginVC.delegate = self
         let loginNavVC = UINavigationController(rootViewController: loginVC)
-        self.present(loginNavVC, animated: false, completion: nil)
+        self.present(loginNavVC, animated: animated, completion: nil)
+    }
+    
+    private func presentLoginScreenAnimated() {
+        presentLoginScreen()
+    }
+    
+    private func prepareNavigationBar() {
+        self.navigationItem.title = "Lista zadań"
+        self.navigationItem.rightBarButtonItem = addBarButton
+        self.navigationItem.leftBarButtonItem = logoutBarButton
+        self.navigationController?.navigationBar.barTintColor = UIColor.cardColor
     }
     
     @objc func onAddClicked() {
@@ -85,6 +99,26 @@ class TasksViewController: UIViewController {
     
     private func addTask(withTitle title: String) {
         taskVM.addTask(withTitle: title)
+    }
+    
+    @objc func onLogoutClicked() {
+        showLogoutAlert()
+    }
+    
+    private func showLogoutAlert() {
+        let logoutAlert = getLogoutAlert()
+        self.present(logoutAlert, animated: true, completion: nil)
+    }
+    
+    private func getLogoutAlert() -> UIAlertController {
+        let alert = UIAlertController(title: "Czy na pewno chcesz się wylogować?", message: "", preferredStyle: .alert)
+        let logoutAction = UIAlertAction(title: "Wyloguj", style: .default) { action in
+            self.taskVM.logout(completion: self.presentLoginScreenAnimated)
+        }
+        let cancelAction = UIAlertAction(title: "Anuluj", style: .default)
+        alert.addAction(cancelAction)
+        alert.addAction(logoutAction)
+        return alert
     }
 
 }

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1E5EA58BFA685A8088A672E0 /* Pods_ToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E9204A05F82ABFB0CD206E /* Pods_ToDo.framework */; };
+		221A2EEE20CAB74C0089A165 /* ShowcaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A2EEA20CAB74C0089A165 /* ShowcaseVC.swift */; };
+		221A2EEF20CAB74C0089A165 /* ShowcaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A2EEB20CAB74C0089A165 /* ShowcaseManager.swift */; };
+		221A2EF020CAB74C0089A165 /* ShowcaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221A2EEC20CAB74C0089A165 /* ShowcaseVC.xib */; };
+		221A2EF120CAB74C0089A165 /* ShowcaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A2EED20CAB74C0089A165 /* ShowcaseModel.swift */; };
 		227B692020C71FBE00F145D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227B691F20C71FBE00F145D0 /* AppDelegate.swift */; };
 		227B692220C71FBE00F145D0 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227B692120C71FBE00F145D0 /* TasksViewController.swift */; };
 		227B692520C71FBE00F145D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227B692320C71FBE00F145D0 /* Main.storyboard */; };
@@ -56,6 +60,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		221A2EEA20CAB74C0089A165 /* ShowcaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowcaseVC.swift; sourceTree = "<group>"; };
+		221A2EEB20CAB74C0089A165 /* ShowcaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowcaseManager.swift; sourceTree = "<group>"; };
+		221A2EEC20CAB74C0089A165 /* ShowcaseVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowcaseVC.xib; sourceTree = "<group>"; };
+		221A2EED20CAB74C0089A165 /* ShowcaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowcaseModel.swift; sourceTree = "<group>"; };
 		227B691C20C71FBE00F145D0 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		227B691F20C71FBE00F145D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		227B692120C71FBE00F145D0 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +129,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		221A2EF220CAB8A80089A165 /* Showcases */ = {
+			isa = PBXGroup;
+			children = (
+				221A2EEB20CAB74C0089A165 /* ShowcaseManager.swift */,
+				221A2EED20CAB74C0089A165 /* ShowcaseModel.swift */,
+				221A2EEA20CAB74C0089A165 /* ShowcaseVC.swift */,
+				221A2EEC20CAB74C0089A165 /* ShowcaseVC.xib */,
+			);
+			path = Showcases;
+			sourceTree = "<group>";
+		};
 		227B691320C71FBE00F145D0 = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +279,7 @@
 		22C9A6E020C83779003800D5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				221A2EF220CAB8A80089A165 /* Showcases */,
 				22C9A6E120C83785003800D5 /* Hideable.swift */,
 				22C9A6E320C83894003800D5 /* GlobalValues.swift */,
 				22D40DD920C86838003EB67B /* ProgressHud.swift */,
@@ -397,6 +417,7 @@
 				22A1A6E820C762E400D65610 /* TaskTVCell.xib in Resources */,
 				227B692D20C71FBE00F145D0 /* LaunchScreen.storyboard in Resources */,
 				22A1A6CD20C730A200D65610 /* GoogleService-Info.plist in Resources */,
+				221A2EF020CAB74C0089A165 /* ShowcaseVC.xib in Resources */,
 				227B692A20C71FBE00F145D0 /* Assets.xcassets in Resources */,
 				227B692520C71FBE00F145D0 /* Main.storyboard in Resources */,
 			);
@@ -489,6 +510,7 @@
 				22C9A6E620C849F4003800D5 /* UIColor+Extensions.swift in Sources */,
 				22C9A6D520C82E5E003800D5 /* User.swift in Sources */,
 				22C9A6DD20C832A6003800D5 /* SignUpVM.swift in Sources */,
+				221A2EF120CAB74C0089A165 /* ShowcaseModel.swift in Sources */,
 				22C9A6D020C82793003800D5 /* LoginVC.swift in Sources */,
 				22C9A6DB20C830D2003800D5 /* LoginVMImpl.swift in Sources */,
 				22A1A6D020C736E400D65610 /* Task.swift in Sources */,
@@ -500,9 +522,11 @@
 				22A1A6DF20C7530200D65610 /* TaskVM.swift in Sources */,
 				22D40DDA20C86838003EB67B /* ProgressHud.swift in Sources */,
 				227B692020C71FBE00F145D0 /* AppDelegate.swift in Sources */,
+				221A2EEE20CAB74C0089A165 /* ShowcaseVC.swift in Sources */,
 				22A1A6E720C762E400D65610 /* TaskTVCell.swift in Sources */,
 				22A1A6D420C73FBA00D65610 /* TasksVM.swift in Sources */,
 				22C9A6E220C83785003800D5 /* Hideable.swift in Sources */,
+				221A2EEF20CAB74C0089A165 /* ShowcaseManager.swift in Sources */,
 				22C9A6DF20C832AE003800D5 /* SignUpVMImpl.swift in Sources */,
 				22A1A6E420C7591100D65610 /* Collection+Extensions.swift in Sources */,
 				22C9A6E420C83894003800D5 /* GlobalValues.swift in Sources */,

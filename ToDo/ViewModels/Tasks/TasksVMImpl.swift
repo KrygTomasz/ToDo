@@ -16,7 +16,7 @@ class TasksVMImpl: TasksVM {
     private var tasksRef: DatabaseReference?
     
     func prepare(completion: EmptyCompletion? = nil) {
-        tasksRef = Database.database().reference(withPath: User.shared.id)
+        tasksRef = Database.database().reference(withPath: "tasks")//User.shared.id)
         tasksRef?.observe(.value) {
             snapshot in
             var taskVMArray: [TaskVM] = []
@@ -48,5 +48,15 @@ class TasksVMImpl: TasksVM {
     func getTaskVM(byIndex index: Int) -> TaskVM? {
         return taskVMs[safe: index]
     }
+    
+    func logout(completion: EmptyCompletion? = nil) {
+        do {
+            try Auth.auth().signOut()
+            completion?()
+        } catch {
+            return
+        }
+    }
+
     
 }
