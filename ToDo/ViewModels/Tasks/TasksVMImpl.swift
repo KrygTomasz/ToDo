@@ -49,14 +49,4 @@ class TasksVMImpl: TasksVM {
         return taskVMs[safe: index]
     }
     
-    func logout(completion: EmptyCompletion? = nil) {
-        do {
-            try Auth.auth().signOut()
-            completion?()
-        } catch {
-            return
-        }
-    }
-
-    
 }

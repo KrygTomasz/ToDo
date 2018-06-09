@@ -1,9 +1,9 @@
 //
 //  ShowcaseVC.swift
-//  mSomed
+//  ToDo
 //
-//  Created by Tomasz Kryg on 28.04.2017.
-//  Copyright © 2017 Kamsoft. All rights reserved.
+//  Created by Kryg Tomasz on 08.06.2018.
+//  Copyright © 2018 Kryg Tomasz. All rights reserved.
 //
 
 import UIKit
@@ -30,11 +30,13 @@ public class ShowcaseVC: UIViewController {
             cardTopPosition = showcaseCardView.frame.origin.y
             showcaseCardView.layer.masksToBounds = true
             showcaseCardView.clipsToBounds = true
+            showcaseCardView.layer.cornerRadius = GlobalValues.MEDIUM_CORNER_RADIUS
         }
     }
     @IBOutlet weak var bottomCardConstraint: NSLayoutConstraint!
     
     let BACKGROUND_DIM_LEVEL: CGFloat = 0.6
+    let bottomConstraint: CGFloat = 16
     
     var completion: (()->())?
     
@@ -147,7 +149,7 @@ public class ShowcaseVC: UIViewController {
     private func moveCard(to location: CGPoint) {
         if location.y > firstPanPosition {
             let deltaY = location.y - firstPanPosition
-            bottomCardConstraint.constant = -deltaY
+            bottomCardConstraint.constant = -deltaY + bottomConstraint
             if lastPanPosition > location.y {
                 wasPannedUp = true
             } else {
@@ -158,7 +160,7 @@ public class ShowcaseVC: UIViewController {
             let alpha = BACKGROUND_DIM_LEVEL * (1 - (positionDelta/showcaseCardView.frame.height))
             setBackgroundDim(alpha: alpha)
         } else {
-            bottomCardConstraint.constant = 0
+            bottomCardConstraint.constant = bottomConstraint
             setBackgroundDim(alpha: BACKGROUND_DIM_LEVEL)
         }
     }
@@ -168,7 +170,7 @@ public class ShowcaseVC: UIViewController {
     }
     
     private func showWholeCard() {
-        bottomCardConstraint.constant = 0
+        bottomCardConstraint.constant = bottomConstraint
     }
     
     private func tryHideShowcaseCard(using location: CGPoint) {
@@ -226,7 +228,7 @@ extension ShowcaseVC {
     
     public func showCardView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
-            self.bottomCardConstraint.constant = 0
+            self.bottomCardConstraint.constant = self.bottomConstraint
             UIView.animate(withDuration: 0.3, animations: {
                 self.setBackgroundDim(alpha: self.BACKGROUND_DIM_LEVEL)
                 self.view.layoutIfNeeded()
@@ -249,7 +251,7 @@ extension ShowcaseVC {
     }
     
     func keyboardWillHide() {
-        self.bottomCardConstraint.constant = 0
+        self.bottomCardConstraint.constant = bottomConstraint
         UIView.animate(withDuration: 0.25, animations: {
             self.view.layoutIfNeeded()
         }, completion: { completed in

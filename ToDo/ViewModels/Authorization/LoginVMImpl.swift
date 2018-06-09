@@ -38,7 +38,7 @@ class LoginVMImpl: LoginVM {
         }
     }
     
-    func observeUsername() {
+    private func observeUsername() {
         let userRef = Database.database().reference(withPath: "users").child(User.shared.id)
         userRef.observe(.value, with: {
             snapshot in

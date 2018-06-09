@@ -16,5 +16,4 @@ protocol TasksVM {
     func numberOfItems() -> Int
     func addTask(withTitle title: String)
     func getTaskVM(byIndex index: Int) -> TaskVM?
-    func logout(completion: EmptyCompletion?)
 }

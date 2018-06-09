@@ -62,4 +62,10 @@ final class User {
         }
     }
     
+    func reset() {
+        self.email = ""
+        self.password = ""
+        self.username = ""
+    }
+    
 }

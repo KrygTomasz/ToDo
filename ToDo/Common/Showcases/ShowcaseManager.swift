@@ -1,9 +1,9 @@
 //
 //  ShowcaseManager.swift
-//  mSomed
+//  ToDo
 //
-//  Created by Tomasz Kryg on 05.05.2017.
-//  Copyright © 2017 Kamsoft. All rights reserved.
+//  Created by Kryg Tomasz on 08.06.2018.
+//  Copyright © 2018 Kryg Tomasz. All rights reserved.
 //
 
 import UIKit

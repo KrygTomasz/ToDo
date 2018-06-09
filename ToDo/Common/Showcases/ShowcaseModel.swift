@@ -1,9 +1,9 @@
 //
 //  ShowcaseModel.swift
-//  mSomed
+//  ToDo
 //
-//  Created by Tomasz Kryg on 12.03.2018.
-//  Copyright © 2018 Kamsoft. All rights reserved.
+//  Created by Kryg Tomasz on 08.06.2018.
+//  Copyright © 2018 Kryg Tomasz. All rights reserved.
 //
 
 import UIKit
