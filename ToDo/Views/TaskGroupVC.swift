@@ -11,14 +11,23 @@ import JGProgressHUD
 
 class TaskGroupVC: UIViewController {
     
-    var groupTaskVM: GroupTaskVM!
-    lazy var addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToTasks))
+    @IBOutlet weak var taskGroupsCollectionView: UICollectionView! {
+        didSet {
+            taskGroupsCollectionView.contentInset = UIEdgeInsetsMake(4, 0, 4, 0)
+            let taskGroupCellNib = UINib(nibName: "TaskGroupCVCell", bundle: nil)
+            taskGroupsCollectionView.register(taskGroupCellNib, forCellWithReuseIdentifier: "TaskGroupCVCell")
+            taskGroupsCollectionView.delegate = self
+            taskGroupsCollectionView.dataSource = self
+        }
+    }
+    var taskGroupsVM: TaskGroupsVM!
+    lazy var addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddTaskGroupClicked))
     lazy var logoutBarButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onLogoutClicked))
     let hud = JGProgressHUD(style: .dark)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        groupTaskVM = GroupTaskVMImpl()
+        taskGroupsVM = TaskGroupsVMImpl()
         ShowcaseManager.instance.set(presentingViewController: self)
         tryToPresentLoginScreen()
         prepareNavigationBar()
@@ -31,10 +40,39 @@ class TaskGroupVC: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.cardColor
     }
     
-    @objc func goToTasks() {
+    func goToTasks() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tasksVC = storyboard.instantiateViewController(withIdentifier: "TasksVC")
         self.navigationController?.pushViewController(tasksVC, animated: true)
+    }
+    
+    @objc func onAddTaskGroupClicked() {
+        showAddTaskGroupAlert()
+    }
+    
+    private func showAddTaskGroupAlert() {
+        let addTaskGroupAlert = getAddTaskGroupAlert()
+        self.present(addTaskGroupAlert, animated: true, completion: nil)
+    }
+    
+    private func getAddTaskGroupAlert() -> UIAlertController {
+        let alert = UIAlertController(title: "Dodaj grupę zadań", message: "", preferredStyle: .alert)
+        let addAction = UIAlertAction(title: "Dodaj", style: .default) { action in
+            guard
+                let title = alert.textFields?.first?.text,
+                !title.isEmpty
+                else { return }
+            self.addTaskGroup(withTitle: title)
+        }
+        let cancelAction = UIAlertAction(title: "Anuluj", style: .default)
+        alert.addTextField()
+        alert.addAction(cancelAction)
+        alert.addAction(addAction)
+        return alert
+    }
+    
+    private func addTaskGroup(withTitle title: String) {
+        taskGroupsVM.addTaskGroup(withTitle: title)
     }
     
     @objc func onLogoutClicked() {
@@ -49,14 +87,86 @@ class TaskGroupVC: UIViewController {
     private func getLogoutAlert() -> UIAlertController {
         let alert = UIAlertController(title: "Czy na pewno chcesz się wylogować?", message: "", preferredStyle: .alert)
         let logoutAction = UIAlertAction(title: "Wyloguj", style: .default) { action in
-        self.groupTaskVM.logout(completion: self.presentLoginScreen)
+            self.taskGroupsVM.logout(completion: self.presentLoginScreen)
         }
         let cancelAction = UIAlertAction(title: "Anuluj", style: .default)
         alert.addAction(cancelAction)
         alert.addAction(logoutAction)
         return alert
     }
+    
+    func reloadView() {
+        showIndicator()
+        taskGroupsVM.prepare() {
+            self.reloadCollectionView()
+            self.hideIndicator()
+        }
+    }
 
+}
+
+//MARK: Indicators
+extension TaskGroupVC {
+    
+    private func showIndicator() {
+        hud.textLabel.text = "Pobieranie grup zadań..."
+        hud.show(in: self.view)
+    }
+    
+    private func hideIndicator() {
+        UIView.animate(withDuration: 0.3) {
+            self.hud.textLabel.text = "Pobrano"
+            self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+            self.hud.dismiss(afterDelay: 1.0, animated: true)
+        }
+    }
+    
+    private func reloadCollectionView() {
+        taskGroupsCollectionView.reloadData()
+        //        tasksTableView.reloadSections([0], with: .none)
+    }
+    
+}
+
+//MARK: UICollectionView delegates
+extension TaskGroupVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let index = indexPath.row
+        guard
+            let cell = taskGroupsCollectionView.dequeueReusableCell(withReuseIdentifier: "TaskGroupCVCell", for: indexPath) as? TaskGroupCVCell//,
+//            let taskGroupVM = groupTaskVM.getGroupTaskVM(byIndex: index)
+        else { return UICollectionViewCell() }
+//        cell.prepare(using: taskGroupVM)
+        return cell
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return taskGroupsVM.numberOfSections()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return taskGroupsVM.numberOfItems()
+    }
+    
+}
+
+extension TaskGroupVC: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = taskGroupsCollectionView.frame.width / 2
+        let height = taskGroupsCollectionView.frame.height / 2.1
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
 }
 
 //MARK: Authorization showcase
@@ -86,7 +196,7 @@ extension TaskGroupVC {
 extension TaskGroupVC: LoginShowcaseViewControllerDelegate {
     
     func loginShowcaseCompletion() {
-//        reload()
+        reloadView()
     }
     
 }

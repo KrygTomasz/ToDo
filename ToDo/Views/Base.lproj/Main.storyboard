@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gQr-EC-0QN">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="4" y="64" width="312" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d1E-xI-Rkq">
                                     <size key="itemSize" width="50" height="50"/>
@@ -32,13 +32,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="prb-ut-7fv" firstAttribute="bottom" secondItem="gQr-EC-0QN" secondAttribute="bottom" id="Bkf-GO-1Je"/>
-                            <constraint firstItem="prb-ut-7fv" firstAttribute="trailing" secondItem="gQr-EC-0QN" secondAttribute="trailing" id="QDm-4y-lNH"/>
+                            <constraint firstItem="prb-ut-7fv" firstAttribute="trailing" secondItem="gQr-EC-0QN" secondAttribute="trailing" constant="4" id="QDm-4y-lNH"/>
                             <constraint firstItem="gQr-EC-0QN" firstAttribute="top" secondItem="prb-ut-7fv" secondAttribute="top" id="c7R-yy-xQb"/>
-                            <constraint firstItem="gQr-EC-0QN" firstAttribute="leading" secondItem="prb-ut-7fv" secondAttribute="leading" id="yRK-dg-WFS"/>
+                            <constraint firstItem="gQr-EC-0QN" firstAttribute="leading" secondItem="prb-ut-7fv" secondAttribute="leading" constant="4" id="yRK-dg-WFS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="prb-ut-7fv"/>
                     </view>
                     <navigationItem key="navigationItem" id="9cG-du-aZx"/>
+                    <connections>
+                        <outlet property="taskGroupsCollectionView" destination="gQr-EC-0QN" id="YXC-i8-i4M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lR9-fQ-dVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,7 +90,6 @@
         <!--Navigation Controller-->
         <scene sceneID="93c-TN-Nz6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F3D-Xt-yio" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zLB-Nq-qFc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tmD-s1-YQW">
@@ -99,6 +101,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LZS-uj-9eO"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F3D-Xt-yio" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="13" y="30"/>
         </scene>

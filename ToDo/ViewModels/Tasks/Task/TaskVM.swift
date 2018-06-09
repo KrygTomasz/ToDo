@@ -13,5 +13,4 @@ protocol TaskVM {
     var title: String {get}
     var addedByUser: String {get}
     var completed: Bool {get}
-    var expanded: Bool {get set}
 }

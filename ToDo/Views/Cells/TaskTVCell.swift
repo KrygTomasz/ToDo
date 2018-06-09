@@ -57,12 +57,7 @@ class TaskTVCell: UITableViewCell {
     }
     
     @objc func onContainerTap() {
-        taskVM.expanded = !taskVM.expanded
-//        if taskVM.expanded {
-//            titleLabel.numberOfLines = 0
-//        } else {
-//            titleLabel.numberOfLines = 2
-//        }
+        
     }
     
 }

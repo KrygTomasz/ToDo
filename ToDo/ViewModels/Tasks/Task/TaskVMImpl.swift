@@ -25,9 +25,7 @@ class TaskVMImpl: TaskVM {
             return task.completed
         }
     }
-    
-    var expanded: Bool = true
-    
+        
     init(task: Task) {
         self.task = task
     }

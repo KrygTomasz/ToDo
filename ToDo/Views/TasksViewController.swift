@@ -84,9 +84,11 @@ class TasksViewController: UIViewController {
 extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tasksTableView.dequeueReusableCell(withIdentifier: "TaskTVCell", for: indexPath) as? TaskTVCell else { return UITableViewCell() }
         let index = indexPath.row
-        guard let taskVM = taskVM.getTaskVM(byIndex: index) else { return UITableViewCell() }
+        guard
+            let cell = tasksTableView.dequeueReusableCell(withIdentifier: "TaskTVCell", for: indexPath) as? TaskTVCell,
+            let taskVM = taskVM.getTaskVM(byIndex: index)
+        else { return UITableViewCell() }
         cell.prepare(using: taskVM)
         return cell
     }
@@ -133,7 +135,7 @@ extension TasksViewController {
         }
     }
     
-    private func reloadCollectionView() {
+    private func reloadTableView() {
         tasksTableView.reloadData()
 //        tasksTableView.reloadSections([0], with: .none)
     }
@@ -143,10 +145,10 @@ extension TasksViewController {
 //MARK: ReloadViewDelegate
 extension TasksViewController {
     
-    func reload() {
+    func reloadView() {
         showIndicator()
         taskVM.prepare() {
-            self.reloadCollectionView()
+            self.reloadTableView()
             self.hideIndicator()
         }
     }
