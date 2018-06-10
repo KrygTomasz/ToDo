@@ -9,6 +9,10 @@
 import UIKit
 import JGProgressHUD
 
+protocol TasksVCDelegate: class {
+    func reloadTasks()
+}
+
 class TasksViewController: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView! {
@@ -28,11 +32,18 @@ class TasksViewController: UIViewController {
     
     lazy var addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddClicked))
     let hud = JGProgressHUD(style: .dark)
-    var taskVM: TasksVM!
+    var taskGroupVM: TaskGroupVM! {
+        didSet {
+            taskGroupVM.prepare() {
+                self.tasksTableView.reloadData()
+            }
+        }
+    }
+//    var taskVM: TasksVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        taskVM = TasksVMImpl()
+//        taskVM = TasksVMImpl()
         prepareNavigationBar()
     }
     
@@ -75,9 +86,20 @@ class TasksViewController: UIViewController {
     }
     
     private func addTask(withTitle title: String) {
-        taskVM.addTask(withTitle: title)
+//        taskVM.addTask(withTitle: title)
+        taskGroupVM.addTask(withTitle: title)
     }
 
+}
+
+//MARK: Constructor
+extension TasksViewController {
+    static func getInstance() -> TasksViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let tasksVC = storyboard.instantiateViewController(withIdentifier: "TasksVC") as? TasksViewController else { return TasksViewController() }
+        _ = tasksVC.view
+        return tasksVC
+    }
 }
 
 //MARK: UITableView Delegate and DataSource
@@ -87,18 +109,22 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
         let index = indexPath.row
         guard
             let cell = tasksTableView.dequeueReusableCell(withIdentifier: "TaskTVCell", for: indexPath) as? TaskTVCell,
-            let taskVM = taskVM.getTaskVM(byIndex: index)
+//            let taskVM = taskVM.getTaskVM(byIndex: index)
+        let taskVM = taskGroupVM.getTaskVM(byIndex: index)
         else { return UITableViewCell() }
         cell.prepare(using: taskVM)
         return cell
     }
     
     func numberOfSections(in tableView: UICollectionView) -> Int {
-        return taskVM.numberOfSections()
+//        return taskVM.numberOfSections()
+        return taskGroupVM.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return taskVM.numberOfItems()
+//        return taskVM.numberOfItems()
+        return taskGroupVM.numberOfItems()
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -112,7 +138,8 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let index = indexPath.row
-            let task = taskVM.getTaskVM(byIndex: index)?.task
+//            let task = taskVM.getTaskVM(byIndex: index)?.task
+            let task = taskGroupVM.getTaskVM(byIndex: index)?.task
             task?.ref?.removeValue()
         }
     }
@@ -142,15 +169,11 @@ extension TasksViewController {
     
 }
 
-//MARK: ReloadViewDelegate
-extension TasksViewController {
+//MARK: TasksVCDelegate
+extension TasksViewController: TasksVCDelegate {
     
-    func reloadView() {
-        showIndicator()
-        taskVM.prepare() {
-            self.reloadTableView()
-            self.hideIndicator()
-        }
+    func reloadTasks() {
+        self.tasksTableView.reloadData()
     }
     
 }

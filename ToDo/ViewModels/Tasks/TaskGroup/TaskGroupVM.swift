@@ -13,4 +13,10 @@ protocol TaskGroupVM {
     var title: String {get}
     var addedByUser: String {get}
     var colorHex: String {get}
+    
+    func prepare(completion: EmptyCompletion?)
+    func numberOfSections() -> Int
+    func numberOfItems() -> Int
+    func addTask(withTitle title: String)
+    func getTaskVM(byIndex index: Int) -> TaskVM?
 }

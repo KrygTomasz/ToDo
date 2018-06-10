@@ -25,6 +25,8 @@ class TaskGroupVC: UIViewController {
     lazy var logoutBarButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onLogoutClicked))
     let hud = JGProgressHUD(style: .dark)
     
+    private weak var tasksVCDelegate: TasksVCDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         taskGroupsVM = TaskGroupsVMImpl()
@@ -40,9 +42,10 @@ class TaskGroupVC: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.cardColor
     }
     
-    func goToTasks() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tasksVC = storyboard.instantiateViewController(withIdentifier: "TasksVC")
+    func goToTasks(using taskGroupVM: TaskGroupVM) {
+        let tasksVC = TasksViewController.getInstance()
+        tasksVC.taskGroupVM = taskGroupVM
+        tasksVCDelegate = tasksVC
         self.navigationController?.pushViewController(tasksVC, animated: true)
     }
     
@@ -99,6 +102,7 @@ class TaskGroupVC: UIViewController {
         showIndicator()
         taskGroupsVM.prepare() {
             self.reloadCollectionView()
+            self.tasksVCDelegate?.reloadTasks()
             self.hideIndicator()
         }
     }
@@ -134,11 +138,17 @@ extension TaskGroupVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let index = indexPath.row
         guard
-            let cell = taskGroupsCollectionView.dequeueReusableCell(withReuseIdentifier: "TaskGroupCVCell", for: indexPath) as? TaskGroupCVCell//,
-//            let taskGroupVM = groupTaskVM.getGroupTaskVM(byIndex: index)
+            let cell = taskGroupsCollectionView.dequeueReusableCell(withReuseIdentifier: "TaskGroupCVCell", for: indexPath) as? TaskGroupCVCell,
+            let taskGroupVM = taskGroupsVM.getTaskGroupVM(byIndex: index)
         else { return UICollectionViewCell() }
-//        cell.prepare(using: taskGroupVM)
+        cell.prepare(using: taskGroupVM)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let taskGroupVM = taskGroupsVM.getTaskGroupVM(byIndex: index)
+        goToTasks(using: taskGroupVM!)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

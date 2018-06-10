@@ -22,7 +22,7 @@ class TaskGroupsVMImpl: TaskGroupsVM {
             for child in snapshot.children {
                 guard let snapshot = child as? DataSnapshot else { continue }
                 let taskGroup = TaskGroup(snapshot: snapshot)
-                let taskGroupVM = TaskGroupVMImpl(taskGroup: taskGroup)
+                let taskGroupVM = TaskGroupVMImpl(taskGroup: taskGroup, taskGroupsRef: self.taskGroupsRef)
                 taskGroupVMArray.append(taskGroupVM)
             }
             self.taskGroupVMs = taskGroupVMArray

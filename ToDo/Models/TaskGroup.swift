@@ -16,6 +16,7 @@ class TaskGroup {
     var title: String = ""
     var addedByUser: String = ""
     var colorHex: String = "#FFFFFF"
+    var tasks: [Task] = []
 //    var completed: Bool = false
 //    var completedByUser: String?
     
@@ -38,6 +39,12 @@ class TaskGroup {
         }
         if let colorHex = snapshotValue["colorHex"] as? String {
             self.colorHex = colorHex
+        }
+        let tasksSnapshot = snapshot.childSnapshot(forPath: "tasks")
+        for child in tasksSnapshot.children {
+            guard let snapshot = child as? DataSnapshot else { continue }
+            let task = Task(snapshot: snapshot)
+            tasks.append(task)
         }
         ref = snapshot.ref
     }
