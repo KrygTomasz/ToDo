@@ -11,6 +11,7 @@ import Foundation
 typealias EmptyCompletion = (() -> Void)
 
 protocol TaskGroupsVM {
+    var isUserLogged: Bool {get}
     func prepare(completion: EmptyCompletion?)
     func numberOfSections() -> Int
     func numberOfItems() -> Int

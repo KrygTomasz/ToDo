@@ -13,6 +13,12 @@ class TaskGroupsVMImpl: TaskGroupsVM {
     
     var taskGroupVMs: [TaskGroupVM] = []
     private var taskGroupsRef: DatabaseReference?
+    
+    var isUserLogged: Bool {
+        get {
+            return User.shared.isLogged
+        }
+    }
 
     func prepare(completion: EmptyCompletion? = nil) {
         taskGroupsRef = Database.database().reference(withPath: "groupTasks")//User.shared.id)

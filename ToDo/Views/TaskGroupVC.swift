@@ -183,7 +183,11 @@ extension TaskGroupVC: UICollectionViewDelegateFlowLayout {
 extension TaskGroupVC {
     
     private func tryToPresentLoginScreen() {
-        presentLoginScreen()
+        if !taskGroupsVM.isUserLogged {
+            presentLoginScreen()
+        } else {
+            reloadView()
+        }
     }
     
     private func getLoginShowcaseModel() -> ShowcaseModel? {

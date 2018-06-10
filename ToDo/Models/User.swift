@@ -51,6 +51,17 @@ final class User {
             return parsedId
         }
     }
+    var isLogged: Bool {
+        get {
+            let value = UserDefaults().string(forKey: GlobalValues.USER_LOGIN)
+            let login = value ?? ""
+            if login.isEmpty {
+                return false
+            } else {
+                return true
+            }
+        }
+    }
     
     private init() { }
     
