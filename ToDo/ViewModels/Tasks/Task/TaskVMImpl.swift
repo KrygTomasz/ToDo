@@ -25,8 +25,10 @@ class TaskVMImpl: TaskVM {
             return task.completed
         }
     }
+    var color: String
         
-    init(task: Task) {
+    init(task: Task, color: String) {
         self.task = task
+        self.color = color
     }
 }

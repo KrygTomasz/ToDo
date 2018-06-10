@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias EmptyCompletion = (() -> Void)
+
 protocol TaskGroupsVM {
     func prepare(completion: EmptyCompletion?)
     func numberOfSections() -> Int

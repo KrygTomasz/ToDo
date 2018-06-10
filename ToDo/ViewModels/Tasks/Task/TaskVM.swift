@@ -13,4 +13,5 @@ protocol TaskVM {
     var title: String {get}
     var addedByUser: String {get}
     var completed: Bool {get}
+    var color: String {get}
 }

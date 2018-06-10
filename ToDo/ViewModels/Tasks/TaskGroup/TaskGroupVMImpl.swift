@@ -32,7 +32,7 @@ class TaskGroupVMImpl: TaskGroupVM {
         self.tasksRef = taskGroupsRef?.child(taskGroup.title).child("tasks")
         taskGroup.tasks.forEach {
             task in
-            taskVMs.append(TaskVMImpl(task: task))
+            taskVMs.append(TaskVMImpl(task: task, color: colorHex))
         }
     }
     
@@ -46,7 +46,7 @@ class TaskGroupVMImpl: TaskGroupVM {
             for child in snapshot.children {
                 guard let snapshot = child as? DataSnapshot else { continue }
                 let task = Task(snapshot: snapshot)
-                let taskVM = TaskVMImpl(task: task)
+                let taskVM = TaskVMImpl(task: task, color: self.colorHex)
                 taskVMArray.append(taskVM)
             }
             self.taskVMs = taskVMArray

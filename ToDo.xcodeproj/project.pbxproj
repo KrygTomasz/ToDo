@@ -34,8 +34,6 @@
 		227B694320C71FBF00F145D0 /* ToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227B694220C71FBF00F145D0 /* ToDoUITests.swift */; };
 		22A1A6CD20C730A200D65610 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22A1A6CC20C730A200D65610 /* GoogleService-Info.plist */; };
 		22A1A6D020C736E400D65610 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1A6CF20C736E400D65610 /* Task.swift */; };
-		22A1A6D420C73FBA00D65610 /* TasksVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1A6D320C73FBA00D65610 /* TasksVM.swift */; };
-		22A1A6DB20C742BE00D65610 /* TasksVMImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1A6DA20C742BE00D65610 /* TasksVMImpl.swift */; };
 		22A1A6DF20C7530200D65610 /* TaskVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1A6DE20C7530200D65610 /* TaskVM.swift */; };
 		22A1A6E120C7539C00D65610 /* TaskVMImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1A6E020C7539C00D65610 /* TaskVMImpl.swift */; };
 		22A1A6E420C7591100D65610 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1A6E320C7591100D65610 /* Collection+Extensions.swift */; };
@@ -47,10 +45,8 @@
 		22C9A6DB20C830D2003800D5 /* LoginVMImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6DA20C830D2003800D5 /* LoginVMImpl.swift */; };
 		22C9A6DD20C832A6003800D5 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6DC20C832A6003800D5 /* SignUpVM.swift */; };
 		22C9A6DF20C832AE003800D5 /* SignUpVMImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6DE20C832AE003800D5 /* SignUpVMImpl.swift */; };
-		22C9A6E220C83785003800D5 /* Hideable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6E120C83785003800D5 /* Hideable.swift */; };
 		22C9A6E420C83894003800D5 /* GlobalValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6E320C83894003800D5 /* GlobalValues.swift */; };
 		22C9A6E620C849F4003800D5 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9A6E520C849F4003800D5 /* UIColor+Extensions.swift */; };
-		22D40DDA20C86838003EB67B /* ProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D40DD920C86838003EB67B /* ProgressHud.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,8 +99,6 @@
 		227B694420C71FBF00F145D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A1A6CC20C730A200D65610 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22A1A6CF20C736E400D65610 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		22A1A6D320C73FBA00D65610 /* TasksVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVM.swift; sourceTree = "<group>"; };
-		22A1A6DA20C742BE00D65610 /* TasksVMImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVMImpl.swift; sourceTree = "<group>"; };
 		22A1A6DE20C7530200D65610 /* TaskVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVM.swift; sourceTree = "<group>"; };
 		22A1A6E020C7539C00D65610 /* TaskVMImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVMImpl.swift; sourceTree = "<group>"; };
 		22A1A6E320C7591100D65610 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
@@ -116,10 +110,8 @@
 		22C9A6DA20C830D2003800D5 /* LoginVMImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVMImpl.swift; sourceTree = "<group>"; };
 		22C9A6DC20C832A6003800D5 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		22C9A6DE20C832AE003800D5 /* SignUpVMImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVMImpl.swift; sourceTree = "<group>"; };
-		22C9A6E120C83785003800D5 /* Hideable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hideable.swift; sourceTree = "<group>"; };
 		22C9A6E320C83894003800D5 /* GlobalValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalValues.swift; sourceTree = "<group>"; };
 		22C9A6E520C849F4003800D5 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		22D40DD920C86838003EB67B /* ProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHud.swift; sourceTree = "<group>"; };
 		3698949BA9488B2DBE975E89 /* Pods-ToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDo/Pods-ToDo.release.xcconfig"; sourceTree = "<group>"; };
 		8C945FA40AB2F981E07ABF8A /* Pods-ToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDo/Pods-ToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		C4E9204A05F82ABFB0CD206E /* Pods_ToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,8 +158,6 @@
 		221D8AE920CBE68100074182 /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				22A1A6D320C73FBA00D65610 /* TasksVM.swift */,
-				22A1A6DA20C742BE00D65610 /* TasksVMImpl.swift */,
 				22A1A6DE20C7530200D65610 /* TaskVM.swift */,
 				22A1A6E020C7539C00D65610 /* TaskVMImpl.swift */,
 			);
@@ -337,9 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				221A2EF220CAB8A80089A165 /* Showcases */,
-				22C9A6E120C83785003800D5 /* Hideable.swift */,
 				22C9A6E320C83894003800D5 /* GlobalValues.swift */,
-				22D40DD920C86838003EB67B /* ProgressHud.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -583,17 +571,13 @@
 				22A1A6E120C7539C00D65610 /* TaskVMImpl.swift in Sources */,
 				2222C95F20CBCCCD00F41036 /* TaskGroupsVM.swift in Sources */,
 				22256A2320CAD58200AC7299 /* LoginShowcaseViewController.swift in Sources */,
-				22A1A6DB20C742BE00D65610 /* TasksVMImpl.swift in Sources */,
 				22A1A6DF20C7530200D65610 /* TaskVM.swift in Sources */,
 				2222C96920CBD78C00F41036 /* TaskGroupVMImpl.swift in Sources */,
-				22D40DDA20C86838003EB67B /* ProgressHud.swift in Sources */,
 				2222C95D20CBCA3300F41036 /* TaskGroupVC.swift in Sources */,
 				227B692020C71FBE00F145D0 /* AppDelegate.swift in Sources */,
 				221A2EEE20CAB74C0089A165 /* ShowcaseVC.swift in Sources */,
 				22A1A6E720C762E400D65610 /* TaskTVCell.swift in Sources */,
 				2222C96120CBCCE300F41036 /* TaskGroupsVMImpl.swift in Sources */,
-				22A1A6D420C73FBA00D65610 /* TasksVM.swift in Sources */,
-				22C9A6E220C83785003800D5 /* Hideable.swift in Sources */,
 				221A2EEF20CAB74C0089A165 /* ShowcaseManager.swift in Sources */,
 				22C9A6DF20C832AE003800D5 /* SignUpVMImpl.swift in Sources */,
 				22A1A6E420C7591100D65610 /* Collection+Extensions.swift in Sources */,

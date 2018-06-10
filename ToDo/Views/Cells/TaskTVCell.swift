@@ -41,6 +41,7 @@ class TaskTVCell: UITableViewCell {
         didSet {
             titleLabel.text = taskVM.title
             addedByUserLabel.text = taskVM.addedByUser
+            container.backgroundColor = UIColor(hex: taskVM.color)
         }
     }
     
