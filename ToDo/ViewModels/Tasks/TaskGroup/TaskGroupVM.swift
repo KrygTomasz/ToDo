@@ -13,6 +13,7 @@ protocol TaskGroupVM {
     var title: String {get}
     var addedByUser: String {get}
     var colorHex: String {get}
+    var taskCompletion: String {get}
     
     func prepare(completion: EmptyCompletion?)
     func numberOfSections() -> Int

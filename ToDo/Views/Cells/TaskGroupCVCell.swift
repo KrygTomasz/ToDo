@@ -15,27 +15,21 @@ class TaskGroupCVCell: UICollectionViewCell {
             containerView.layer.cornerRadius = GlobalValues.MEDIUM_CORNER_RADIUS
         }
     }
-    @IBOutlet weak var titleLabel: UILabel! {
-        didSet {
-            titleLabel.textColor = UIColor.black
-        }
-    }
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var separatorView: UIView! {
         didSet {
             separatorView.backgroundColor = UIColor.lightGray
         }
     }
-    @IBOutlet weak var addedByUserLabel: UILabel! {
-        didSet {
-            addedByUserLabel.textColor = UIColor.black
-        }
-    }
+    @IBOutlet weak var taskCompletionLabel: UILabel!
+    @IBOutlet weak var addedByUserLabel: UILabel!
     
     var taskGroupVM: TaskGroupVM! {
         didSet {
             titleLabel.text = taskGroupVM.title
             addedByUserLabel.text = taskGroupVM.addedByUser
             containerView.backgroundColor = UIColor(hex: taskGroupVM.colorHex)
+            taskCompletionLabel.text = taskGroupVM.taskCompletion
         }
     }
     

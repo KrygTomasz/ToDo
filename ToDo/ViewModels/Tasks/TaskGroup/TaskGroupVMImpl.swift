@@ -26,6 +26,18 @@ class TaskGroupVMImpl: TaskGroupVM {
             return taskGroup.colorHex
         }
     }
+    var taskCompletion: String {
+        get {
+            let count = taskGroup.tasks.count
+            var completedTasks = 0
+            for task in taskGroup.tasks {
+                if task.completed {
+                    completedTasks += 1
+                }
+            }
+            return "\(completedTasks)/\(count)"
+        }
+    }
     
     init(taskGroup: TaskGroup, taskGroupsRef: DatabaseReference?) {
         self.taskGroup = taskGroup
