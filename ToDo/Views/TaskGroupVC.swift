@@ -43,7 +43,7 @@ class TaskGroupVC: UIViewController {
     }
     
     func goToTasks(using taskGroupVM: TaskGroupVM) {
-        let tasksVC = TasksViewController.getInstance()
+        let tasksVC = TasksVC.getInstance()
         tasksVC.taskGroupVM = taskGroupVM
         tasksVCDelegate = tasksVC
         self.navigationController?.pushViewController(tasksVC, animated: true)
@@ -191,7 +191,7 @@ extension TaskGroupVC {
     }
     
     private func getLoginShowcaseModel() -> ShowcaseModel? {
-        guard let loginVC = LoginShowcaseViewController.getInstance() else { return nil }
+        guard let loginVC = LoginShowcaseVC.getInstance() else { return nil }
         loginVC.delegate = self
         let loginShowcaseModel = ShowcaseModel(with: loginVC, canBeShownFunction: checkLoginShowcaseConditions, canBeHide: true)
         return loginShowcaseModel

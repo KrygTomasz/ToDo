@@ -1,5 +1,5 @@
 //
-//  TasksViewController.swift
+//  TasksVC.swift
 //  ToDo
 //
 //  Created by Kryg Tomasz on 05.06.2018.
@@ -13,7 +13,7 @@ protocol TasksVCDelegate: class {
     func reloadTasks()
 }
 
-class TasksViewController: UIViewController {
+class TasksVC: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView! {
         didSet {
@@ -93,17 +93,17 @@ class TasksViewController: UIViewController {
 }
 
 //MARK: Constructor
-extension TasksViewController {
-    static func getInstance() -> TasksViewController {
+extension TasksVC {
+    static func getInstance() -> TasksVC {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let tasksVC = storyboard.instantiateViewController(withIdentifier: "TasksVC") as? TasksViewController else { return TasksViewController() }
+        guard let tasksVC = storyboard.instantiateViewController(withIdentifier: "TasksVC") as? TasksVC else { return TasksVC() }
         _ = tasksVC.view
         return tasksVC
     }
 }
 
 //MARK: UITableView Delegate and DataSource
-extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
+extension TasksVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
@@ -147,7 +147,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 //MARK: Indicators
-extension TasksViewController {
+extension TasksVC {
     
     private func showIndicator() {
         hud.textLabel.text = "Pobieranie listy zadań..."
@@ -170,7 +170,7 @@ extension TasksViewController {
 }
 
 //MARK: TasksVCDelegate
-extension TasksViewController: TasksVCDelegate {
+extension TasksVC: TasksVCDelegate {
     
     func reloadTasks() {
         self.tasksTableView.reloadData()

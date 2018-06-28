@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginShowcaseViewController" customModule="ToDo" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginShowcaseVC" customModule="ToDo" customModuleProvider="target">
             <connections>
                 <outlet property="loginButton" destination="Q8u-Ki-ZZf" id="87d-Zn-qZi"/>
                 <outlet property="loginTextField" destination="xr0-Rx-rh0" id="Tgy-bl-36K"/>

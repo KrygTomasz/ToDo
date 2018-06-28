@@ -1,5 +1,5 @@
 //
-//  LoginShowcaseViewController.swift
+//  LoginShowcaseVC.swift
 //  ToDo
 //
 //  Created by Kryg Tomasz on 08.06.2018.
@@ -19,13 +19,13 @@ protocol LoginVCDelegate: class {
     func hideVC()
 }
 
-extension LoginShowcaseViewController: DismissableShowcase {
+extension LoginShowcaseVC: DismissableShowcase {
     func assignDismissClosure(closure: @escaping (@escaping onHideCompletionBlock) -> Void) {
         closeView = closure
     }
 }
 
-extension LoginShowcaseViewController: ShowcaseWithKeyboard {
+extension LoginShowcaseVC: ShowcaseWithKeyboard {
     func assignShowKeyboardFunction(function: @escaping () -> Void) {
         keyboardWillShow = function
     }
@@ -35,7 +35,7 @@ extension LoginShowcaseViewController: ShowcaseWithKeyboard {
     }
 }
 
-class LoginShowcaseViewController: UIViewController {
+class LoginShowcaseVC: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
@@ -114,7 +114,7 @@ class LoginShowcaseViewController: UIViewController {
 }
 
 //MARK: LoginVCDelegate
-extension LoginShowcaseViewController: LoginVCDelegate {
+extension LoginShowcaseVC: LoginVCDelegate {
     
     func showIndicator(description: String) {
         hud.textLabel.text = description
@@ -136,16 +136,16 @@ extension LoginShowcaseViewController: LoginVCDelegate {
 }
 
 //MARK: Constructor
-extension LoginShowcaseViewController {
-    static func getInstance() -> LoginShowcaseViewController? {
-        let viewController = LoginShowcaseViewController(nibName: "LoginShowcaseViewController", bundle: Bundle(for: LoginShowcaseViewController.self))
+extension LoginShowcaseVC {
+    static func getInstance() -> LoginShowcaseVC? {
+        let viewController = LoginShowcaseVC(nibName: "LoginShowcaseVC", bundle: Bundle(for: LoginShowcaseVC.self))
         _ = viewController.view
         return viewController
     }
 }
 
 //MARK: UITextField Delegate
-extension LoginShowcaseViewController: UITextFieldDelegate {
+extension LoginShowcaseVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)

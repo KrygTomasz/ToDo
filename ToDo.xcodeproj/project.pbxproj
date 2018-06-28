@@ -13,6 +13,8 @@
 		221A2EF020CAB74C0089A165 /* ShowcaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221A2EEC20CAB74C0089A165 /* ShowcaseVC.xib */; };
 		221A2EF120CAB74C0089A165 /* ShowcaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A2EED20CAB74C0089A165 /* ShowcaseModel.swift */; };
 		221D8AE820CBE4A700074182 /* TaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221D8AE720CBE4A700074182 /* TaskGroup.swift */; };
+		22218AAA20D02A9700B064DA /* AddTaskGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22218AA820D02A9700B064DA /* AddTaskGroupVC.swift */; };
+		22218AAB20D02A9700B064DA /* AddTaskGroupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22218AA920D02A9700B064DA /* AddTaskGroupVC.xib */; };
 		2222C95A20CBBDBF00F41036 /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2222C95920CBBDBF00F41036 /* SignUpVC.xib */; };
 		2222C95D20CBCA3300F41036 /* TaskGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222C95C20CBCA3300F41036 /* TaskGroupVC.swift */; };
 		2222C95F20CBCCCD00F41036 /* TaskGroupsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222C95E20CBCCCD00F41036 /* TaskGroupsVM.swift */; };
@@ -21,11 +23,11 @@
 		2222C96520CBD62100F41036 /* TaskGroupCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2222C96320CBD62100F41036 /* TaskGroupCVCell.xib */; };
 		2222C96720CBD78300F41036 /* TaskGroupVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222C96620CBD78300F41036 /* TaskGroupVM.swift */; };
 		2222C96920CBD78C00F41036 /* TaskGroupVMImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222C96820CBD78C00F41036 /* TaskGroupVMImpl.swift */; };
-		22256A2320CAD58200AC7299 /* LoginShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22256A2020CAD58100AC7299 /* LoginShowcaseViewController.swift */; };
+		22256A2320CAD58200AC7299 /* LoginShowcaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22256A2020CAD58100AC7299 /* LoginShowcaseVC.swift */; };
 		22256A2420CAD58200AC7299 /* LoginShowcaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22256A2120CAD58100AC7299 /* LoginShowcaseModel.swift */; };
-		22256A2820CAD98800AC7299 /* LoginShowcaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22256A2720CAD98800AC7299 /* LoginShowcaseViewController.xib */; };
+		22256A2820CAD98800AC7299 /* LoginShowcaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22256A2720CAD98800AC7299 /* LoginShowcaseVC.xib */; };
 		227B692020C71FBE00F145D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227B691F20C71FBE00F145D0 /* AppDelegate.swift */; };
-		227B692220C71FBE00F145D0 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227B692120C71FBE00F145D0 /* TasksViewController.swift */; };
+		227B692220C71FBE00F145D0 /* TasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227B692120C71FBE00F145D0 /* TasksVC.swift */; };
 		227B692520C71FBE00F145D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227B692320C71FBE00F145D0 /* Main.storyboard */; };
 		227B692820C71FBE00F145D0 /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227B692620C71FBE00F145D0 /* ToDo.xcdatamodeld */; };
 		227B692A20C71FBE00F145D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227B692920C71FBE00F145D0 /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		221A2EEC20CAB74C0089A165 /* ShowcaseVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowcaseVC.xib; sourceTree = "<group>"; };
 		221A2EED20CAB74C0089A165 /* ShowcaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowcaseModel.swift; sourceTree = "<group>"; };
 		221D8AE720CBE4A700074182 /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
+		22218AA820D02A9700B064DA /* AddTaskGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskGroupVC.swift; sourceTree = "<group>"; };
+		22218AA920D02A9700B064DA /* AddTaskGroupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskGroupVC.xib; sourceTree = "<group>"; };
 		2222C95920CBBDBF00F41036 /* SignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
 		2222C95C20CBCA3300F41036 /* TaskGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupVC.swift; sourceTree = "<group>"; };
 		2222C95E20CBCCCD00F41036 /* TaskGroupsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupsVM.swift; sourceTree = "<group>"; };
@@ -80,12 +84,12 @@
 		2222C96320CBD62100F41036 /* TaskGroupCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskGroupCVCell.xib; sourceTree = "<group>"; };
 		2222C96620CBD78300F41036 /* TaskGroupVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupVM.swift; sourceTree = "<group>"; };
 		2222C96820CBD78C00F41036 /* TaskGroupVMImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupVMImpl.swift; sourceTree = "<group>"; };
-		22256A2020CAD58100AC7299 /* LoginShowcaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginShowcaseViewController.swift; sourceTree = "<group>"; };
+		22256A2020CAD58100AC7299 /* LoginShowcaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginShowcaseVC.swift; sourceTree = "<group>"; };
 		22256A2120CAD58100AC7299 /* LoginShowcaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginShowcaseModel.swift; sourceTree = "<group>"; };
-		22256A2720CAD98800AC7299 /* LoginShowcaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginShowcaseViewController.xib; sourceTree = "<group>"; };
+		22256A2720CAD98800AC7299 /* LoginShowcaseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginShowcaseVC.xib; sourceTree = "<group>"; };
 		227B691C20C71FBE00F145D0 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		227B691F20C71FBE00F145D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		227B692120C71FBE00F145D0 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		227B692120C71FBE00F145D0 /* TasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVC.swift; sourceTree = "<group>"; };
 		227B692420C71FBE00F145D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		227B692720C71FBE00F145D0 /* ToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDo.xcdatamodel; sourceTree = "<group>"; };
 		227B692920C71FBE00F145D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 		221A2EF220CAB8A80089A165 /* Showcases */ = {
 			isa = PBXGroup;
 			children = (
+				22218AA520D026D800B064DA /* AddTaskGroup */,
 				22256A1F20CAD57100AC7299 /* Authorization */,
 				221A2EEB20CAB74C0089A165 /* ShowcaseManager.swift */,
 				221A2EED20CAB74C0089A165 /* ShowcaseModel.swift */,
@@ -175,10 +180,27 @@
 			path = TaskGroup;
 			sourceTree = "<group>";
 		};
+		22218AA520D026D800B064DA /* AddTaskGroup */ = {
+			isa = PBXGroup;
+			children = (
+				22218AAC20D02AA500B064DA /* Views */,
+				22218AA820D02A9700B064DA /* AddTaskGroupVC.swift */,
+			);
+			path = AddTaskGroup;
+			sourceTree = "<group>";
+		};
+		22218AAC20D02AA500B064DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22218AA920D02A9700B064DA /* AddTaskGroupVC.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2222C95B20CBC07D00F41036 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				22256A2720CAD98800AC7299 /* LoginShowcaseViewController.xib */,
+				22256A2720CAD98800AC7299 /* LoginShowcaseVC.xib */,
 				2222C95920CBBDBF00F41036 /* SignUpVC.xib */,
 			);
 			path = Views;
@@ -189,7 +211,7 @@
 			children = (
 				2222C95B20CBC07D00F41036 /* Views */,
 				22256A2120CAD58100AC7299 /* LoginShowcaseModel.swift */,
-				22256A2020CAD58100AC7299 /* LoginShowcaseViewController.swift */,
+				22256A2020CAD58100AC7299 /* LoginShowcaseVC.swift */,
 				22C9A6D220C829CF003800D5 /* SignUpVC.swift */,
 			);
 			path = Authorization;
@@ -269,7 +291,7 @@
 				22A1A6D520C73FF900D65610 /* Cells */,
 				227B692320C71FBE00F145D0 /* Main.storyboard */,
 				2222C95C20CBCA3300F41036 /* TaskGroupVC.swift */,
-				227B692120C71FBE00F145D0 /* TasksViewController.swift */,
+				227B692120C71FBE00F145D0 /* TasksVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -463,7 +485,8 @@
 				227B692D20C71FBE00F145D0 /* LaunchScreen.storyboard in Resources */,
 				22A1A6CD20C730A200D65610 /* GoogleService-Info.plist in Resources */,
 				2222C96520CBD62100F41036 /* TaskGroupCVCell.xib in Resources */,
-				22256A2820CAD98800AC7299 /* LoginShowcaseViewController.xib in Resources */,
+				22256A2820CAD98800AC7299 /* LoginShowcaseVC.xib in Resources */,
+				22218AAB20D02A9700B064DA /* AddTaskGroupVC.xib in Resources */,
 				2222C95A20CBBDBF00F41036 /* SignUpVC.xib in Resources */,
 				221A2EF020CAB74C0089A165 /* ShowcaseVC.xib in Resources */,
 				227B692A20C71FBE00F145D0 /* Assets.xcassets in Resources */,
@@ -565,13 +588,14 @@
 				22C9A6DB20C830D2003800D5 /* LoginVMImpl.swift in Sources */,
 				22A1A6D020C736E400D65610 /* Task.swift in Sources */,
 				221D8AE820CBE4A700074182 /* TaskGroup.swift in Sources */,
-				227B692220C71FBE00F145D0 /* TasksViewController.swift in Sources */,
+				227B692220C71FBE00F145D0 /* TasksVC.swift in Sources */,
 				227B692820C71FBE00F145D0 /* ToDo.xcdatamodeld in Sources */,
 				22C9A6D320C829CF003800D5 /* SignUpVC.swift in Sources */,
 				22A1A6E120C7539C00D65610 /* TaskVMImpl.swift in Sources */,
 				2222C95F20CBCCCD00F41036 /* TaskGroupsVM.swift in Sources */,
-				22256A2320CAD58200AC7299 /* LoginShowcaseViewController.swift in Sources */,
+				22256A2320CAD58200AC7299 /* LoginShowcaseVC.swift in Sources */,
 				22A1A6DF20C7530200D65610 /* TaskVM.swift in Sources */,
+				22218AAA20D02A9700B064DA /* AddTaskGroupVC.swift in Sources */,
 				2222C96920CBD78C00F41036 /* TaskGroupVMImpl.swift in Sources */,
 				2222C95D20CBCA3300F41036 /* TaskGroupVC.swift in Sources */,
 				227B692020C71FBE00F145D0 /* AppDelegate.swift in Sources */,
